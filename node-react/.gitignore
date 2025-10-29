@@ -1,0 +1,74 @@
+# ========================
+# Node.js / pnpm defaults
+# ========================
+
+# Dependências
+node_modules/
+.pnpm-store/
+.pnpm-debug.log*
+pnpm-debug.log*
+
+# Build / compilados
+dist/
+build/
+out/
+lib/
+coverage/
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Ambiente
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Cache
+.cache/
+.tmp/
+.temp/
+.eslintcache
+.vscode-test/
+jest-cache/
+jest-test-results.json
+
+# IDEs / sistema
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Testes / relatórios
+coverage/
+.nyc_output/
+cypress/videos/
+cypress/screenshots/
+playwright-report/
+test-results/
+
+# Next.js / Remix / frameworks
+.next/
+.vercel/
+.netlify/
+.serverless/
+.svelte-kit/
+remix.build/
+
+# Tipos / gerados automaticamente
+types/
+*.d.ts
+
+# Outros
+*.local
+*.bak
+*.backup
