@@ -31,8 +31,9 @@ Um serviço para capturar e inspecionar requisições webhook, permitindo visual
 ## ⚙️ Instalação
 
 1. **Clone o repositório**
+
 ```bash
-git clone <url-do-repositorio>
+git clone https://github.com/EduardoMendes418/Full-Stack-WebHook-Inspector-IA.git
 cd webhook-inspector
 pnpm install
 
@@ -51,7 +52,5 @@ pnpm run build
 pnpm start
 
 http://localhost:3333/docs
----
 
-
-
+```
