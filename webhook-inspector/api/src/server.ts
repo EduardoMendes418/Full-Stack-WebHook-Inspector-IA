@@ -1,7 +1,12 @@
 import { fastify } from 'fastify'
 import { fastifyCors } from '@fastify/cors'
 import { fastifySwagger } from '@fastify/swagger'
-import { serializerCompiler, validatorCompiler, jsonSchemaTransform, type ZodTypeProvider } from 'fastify-type-provider-zod'
+import {
+  serializerCompiler,
+  validatorCompiler,
+  jsonSchemaTransform,
+  type ZodTypeProvider,
+} from 'fastify-type-provider-zod'
 import ScalarApiReference from '@scalar/fastify-api-reference'
 
 import { env } from './config/env'
@@ -18,7 +23,7 @@ app.setSerializerCompiler(serializerCompiler)
 app.register(fastifyCors, {
   origin: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-  credentials: true
+  credentials: true,
 })
 
 app.register(fastifySwagger, {
@@ -27,13 +32,13 @@ app.register(fastifySwagger, {
       title: 'Webhook Inspector API',
       description: 'API for capturing and inspecting webhook requests',
       version: '1.0.0',
-    }
+    },
   },
-  transform: jsonSchemaTransform
+  transform: jsonSchemaTransform,
 })
 
 app.register(ScalarApiReference, {
-  routePrefix: '/docs'
+  routePrefix: '/docs',
 })
 
 app.register(getWebhook)

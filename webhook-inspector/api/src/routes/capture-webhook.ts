@@ -12,19 +12,24 @@ export const captureWebhook: FastifyPluginAsyncZod = async (app) => {
         tags: ['External'],
         hide: true,
         response: {
-          201: z.object({ id: z.uuidv7() })
-        }
-      }
+          201: z.object({ id: z.uuidv7() }),
+        },
+      },
     },
     async (request, reply) => {
       const method = request.method
       const ip = request.ip
       const contentType = request.headers['content-type']
-      const contentLength = request.headers['content-length'] ? Number(request.headers['content-length']) : null
-      
+      const contentLength = request.headers['content-length']
+        ? Number(request.headers['content-length'])
+        : null
+
       let body: string | null = null
       if (request.body) {
-        body = typeof request.body === 'string' ? request.body : JSON.stringify(request.body, null, 2)
+        body =
+          typeof request.body === 'string'
+            ? request.body
+            : JSON.stringify(request.body, null, 2)
       }
 
       const pathname = new URL(request.url).pathname.replace('/capture', '')
@@ -33,7 +38,7 @@ export const captureWebhook: FastifyPluginAsyncZod = async (app) => {
         Object.entries(request.headers).map(([key, value]) => [
           key,
           Array.isArray(value) ? value.join(', ') : value || '',
-        ])
+        ]),
       )
 
       const result = await db
@@ -46,11 +51,11 @@ export const captureWebhook: FastifyPluginAsyncZod = async (app) => {
           body,
           pathname,
           headers,
-          statusCode: 200,          
+          statusCode: 200,
         })
         .returning()
 
       return reply.status(201).send({ id: result[0].id })
-    }
+    },
   )
 }

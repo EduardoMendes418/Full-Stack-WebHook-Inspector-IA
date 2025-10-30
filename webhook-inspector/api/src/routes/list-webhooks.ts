@@ -24,12 +24,12 @@ export const listWebhooks: FastifyPluginAsyncZod = async (app) => {
                 method: true,
                 pathname: true,
                 createdAt: true,
-              })
+              }),
             ),
-            nextCursor: z.string().nullable()
-          })
-        }
-      }
+            nextCursor: z.string().nullable(),
+          }),
+        },
+      },
     },
     async (request, reply) => {
       const { limit, cursor } = request.query
@@ -53,6 +53,6 @@ export const listWebhooks: FastifyPluginAsyncZod = async (app) => {
         webhooks: items,
         nextCursor,
       })
-    }
+    },
   )
 }

@@ -17,9 +17,9 @@ export const getWebhook: FastifyPluginAsyncZod = async (app) => {
         }),
         response: {
           200: createSelectSchema(webhooks),
-          404: z.object({ message: z.string() })
-        }
-      }
+          404: z.object({ message: z.string() }),
+        },
+      },
     },
     async (request, reply) => {
       const { id } = request.params
@@ -34,6 +34,6 @@ export const getWebhook: FastifyPluginAsyncZod = async (app) => {
       }
 
       return reply.send(result[0])
-    }
+    },
   )
 }
