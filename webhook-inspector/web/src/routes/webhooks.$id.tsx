@@ -7,7 +7,7 @@ export const Route = createFileRoute('/webhooks/$id')({
 })
 
 function RouteComponent() {
- const { id } = Route.useParams()
+  const { id } = Route.useParams()
 
   return (
     <Suspense fallback={<p>Carregando...</p>}>
