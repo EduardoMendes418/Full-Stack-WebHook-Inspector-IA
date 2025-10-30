@@ -1,7 +1,6 @@
 import { db } from '@/db'
 import { webhooks } from '@/db/schema'
-import { desc } from 'drizzle-orm'
-import { lt } from 'drizzle-orm'
+import { desc, eq, lt } from 'drizzle-orm'
 import { createSelectSchema } from 'drizzle-zod'
 import type { FastifyPluginAsyncZod } from 'fastify-type-provider-zod'
 import { z } from 'zod'
@@ -11,7 +10,7 @@ export const listWebhooks: FastifyPluginAsyncZod = async (app) => {
     '/api/webhooks',
     {
       schema: {
-        summary: 'List webhooks',
+        summary: 'List Webhooks',
         tags: ['Webhooks'],
         querystring: z.object({
           limit: z.coerce.number().min(1).max(100).default(20),
@@ -25,16 +24,15 @@ export const listWebhooks: FastifyPluginAsyncZod = async (app) => {
                 method: true,
                 pathname: true,
                 createdAt: true,
-              })
+              }),
             ),
             nextCursor: z.string().nullable(),
-          })
+          }),
         },
       },
     },
     async (request, reply) => {
       const { limit, cursor } = request.query
-
       const result = await db
         .select({
           id: webhooks.id,

@@ -2,7 +2,7 @@
 
 Um serviço para capturar e inspecionar requisições webhook, permitindo visualizar detalhes como headers, corpo, parâmetros de query e outras informações relevantes.
 
-## 🚀 Funcionalidades
+## 🚀 Funcionalidades Back-end
 
 - **Captura de Webhooks**: Recebe e armazena requisições HTTP de qualquer tipo
 - **Inspeção Detalhada**: Registra headers, corpo, método, status code, IP de origem e mais
@@ -11,7 +11,7 @@ Um serviço para capturar e inspecionar requisições webhook, permitindo visual
 - **Paginação**: Suporte a cursor-based pagination para listagem eficiente
 - **Tipagem Forte**: Desenvolvido com TypeScript e validação Zod
 
-## 🛠 Tecnologias
+## 🛠 Tecnologias Back-end
 
 - **Runtime**: Node.js
 - **Framework**: Fastify
@@ -21,6 +21,30 @@ Um serviço para capturar e inspecionar requisições webhook, permitindo visual
 - **Documentação**: Scalar API Reference
 - **Migrations**: Drizzle Kit
 - **TypeScript**: Tipagem estática
+
+## 🚀 Funcionalidades Front-end
+
+- **Interface Dividida**: Painel lateral com lista de webhooks e painel principal para detalhes
+- **Inspeção Detalhada**: Visualize método, headers, parâmetros de query e corpo da requisição
+- **Syntax Highlighting**: Destaque de sintaxe para JSON no corpo das requisições
+- **Timestamps**: Histórico com timestamps relativos
+- **Gerenciamento**: Exclua webhooks individualmente
+- **Cópia Rápida**: Copie a URL de captura com um clique
+- **Scroll Infinito**: Carregamento automático conforme você scrolla
+- **Tema Escuro**: Interface com tema escuro otimizada para desenvolvedores
+
+## 🛠 Tecnologias Front-end
+
+- **Frontend**: React 18 + TypeScript
+- **Roteamento**: TanStack Router
+- **Estado**: TanStack Query
+- **Estilização**: Tailwind CSS
+- **Ícones**: Lucide React
+- **UI**: Radix UI (Checkbox)
+- **Syntax Highlighting**: Shiki
+- **Painéis Redimensionáveis**: React Resizable Panels
+- **Utilidades**: date-fns, tailwind-merge, tailwind-variants
+- **Validação**: Zod
 
 ## 📋 Pré-requisitos
 

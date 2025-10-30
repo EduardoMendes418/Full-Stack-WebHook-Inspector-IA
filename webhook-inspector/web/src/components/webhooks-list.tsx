@@ -1,10 +1,8 @@
-import { Loader2 } from 'lucide-react'
+import { useSuspenseInfiniteQuery } from '@tanstack/react-query'
 import { WebhooksListItem } from './webhooks-list-item'
-import {
-  useSuspenseInfiniteQuery,
-} from '@tanstack/react-query'
-import { useEffect, useRef } from 'react'
 import { webhookListSchema } from '../http/schemas/webhooks'
+import { Loader2 } from 'lucide-react'
+import { useEffect, useRef } from 'react'
 
 export function WebhooksList() {
   const loadMoreRef = useRef<HTMLDivElement>(null)
@@ -15,10 +13,7 @@ export function WebhooksList() {
       queryKey: ['webhooks'],
       queryFn: async ({ pageParam }) => {
         const url = new URL('http://localhost:3333/api/webhooks')
-
-        if (pageParam) {
-          url.searchParams.set('cursor', pageParam)
-        }
+        if (pageParam) url.searchParams.set('cursor', pageParam)
 
         const response = await fetch(url)
         const data = await response.json()
@@ -69,11 +64,10 @@ export function WebhooksList() {
           return <WebhooksListItem key={webhook.id} webhook={webhook} />
         })}
       </div>
-
       {hasNextPage && (
         <div className="p-2" ref={loadMoreRef}>
           {isFetchingNextPage && (
-            <div className="flex items-center justify-center py-2">
+            <div className="flex items-center justify-center py-3">
               <Loader2 className="size-5 animate-spin text-zinc-500" />
             </div>
           )}
