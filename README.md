@@ -26,7 +26,7 @@ Um serviço para capturar e inspecionar requisições webhook, permitindo visual
 
 ## 🚀 Funcionalidades Front-end
 
-<img width="1916" height="930" alt="front end" src="https://github.com/user-attachments/assets/9a9b867d-11c3-430b-b310-be2d3ac92497" />
+<img width="1915" height="1034" alt="IA" src="https://github.com/user-attachments/assets/b31a7e77-c9aa-4342-99ab-fd1b7e100b0f" />
 
 - **Interface Dividida**: Painel lateral com lista de webhooks e painel principal para detalhes
 - **Inspeção Detalhada**: Visualize método, headers, parâmetros de query e corpo da requisição
