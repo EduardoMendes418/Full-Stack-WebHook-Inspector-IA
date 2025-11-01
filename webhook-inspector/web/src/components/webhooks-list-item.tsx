@@ -16,9 +16,12 @@ interface WebhookListItemProps {
   isWebhookChecked: boolean
 }
 
-export function WebhooksListItem({ webhook, onWebhookChecked, isWebhookChecked }: WebhookListItemProps) {
+export function WebhooksListItem({
+  webhook,
+  onWebhookChecked,
+  isWebhookChecked,
+}: WebhookListItemProps) {
   const queryClient = useQueryClient()
-
 
   const { mutate: deleteWebhook } = useMutation({
     mutationFn: async (id: string) => {
